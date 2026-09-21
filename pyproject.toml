@@ -30,7 +30,7 @@ classifiers = [
     "Topic :: Utilities",
 ]
 dependencies = [
-    "rich>=13.0.0",
+    "rich>=15.0.0",
 ]
 
 [project.optional-dependencies]
