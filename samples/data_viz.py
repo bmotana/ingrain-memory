@@ -1,0 +1,7 @@
+plt.figure(figsize=(9, 5))
+sns.set_style("whitegrid")
+sns.regplot(x="Age", y="Salary", data=df)
+plt.xlim(27, 42)
+plt.ylim(60000, 95000)
+plt.legend(["ALL"])
+plt.show()
