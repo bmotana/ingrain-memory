@@ -29,6 +29,8 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+.ruff_cache/
+coverage.xml
 
 # User data
 .recall/
