@@ -30,12 +30,12 @@ from recall.ui.console import console, show_banner, clear_screen
 
 def display_samples_table(library: LibraryManager) -> None:
     """Prints a styled table of all available sample decks."""
-    table = Table(title="[bold cyan]📚 Recall Snippet Library[/]", expand=True)
-    table.add_column("Name", style="bold green", width=18)
-    table.add_column("Category", style="magenta", width=12)
-    table.add_column("Language", style="blue", width=10)
-    table.add_column("Default Unit", style="yellow", width=12)
-    table.add_column("Description", style="white")
+    table = Table(title="[bold bright_magenta]📚 Recall Snippet Library[/]", expand=True, border_style="bright_blue", header_style="bold bright_cyan")
+    table.add_column("Name", style="bold bright_green", width=18)
+    table.add_column("Category", style="bright_magenta", width=12)
+    table.add_column("Language", style="bright_blue", width=10)
+    table.add_column("Default Unit", style="bright_yellow", width=12)
+    table.add_column("Description", style="bright_white")
 
     for snippet in library.get_all_samples():
         table.add_row(
@@ -123,14 +123,16 @@ def interactive_menu(library: LibraryManager) -> None:
     while True:
         clear_screen()
         show_banner()
-        console.print("[bold]Select an action:[/]\n")
-        console.print("  [bold cyan]1.[/] Quick Sentence Recall [dim](word-by-word typing)[/]")
-        console.print("  [bold cyan]2.[/] Code Memorizer [dim](line-by-line with syntax highlighting)[/]")
-        console.print("  [bold cyan]3.[/] Oral / Speech Practice [dim](recite aloud, self-graded)[/]")
-        console.print("  [bold cyan]4.[/] Practice from Snippet Library")
-        console.print("  [bold cyan]5.[/] Load from a File")
-        console.print("  [bold cyan]6.[/] View Snippet Library")
-        console.print("  [bold cyan]7.[/] Exit\n")
+        console.print(Panel(
+            "[bold bright_yellow]1.[/] [bold bright_cyan]Quick Sentence Recall[/] [dim](word-by-word typing)[/]\n"
+            "[bold bright_yellow]2.[/] [bold bright_green]Code Memorizer[/] [dim](line-by-line with syntax highlighting)[/]\n"
+            "[bold bright_yellow]3.[/] [bold bright_magenta]Oral / Speech Practice[/] [dim](recite aloud, self-graded)[/]\n"
+            "[bold bright_yellow]4.[/] [bright_blue]Practice from Snippet Library[/]\n"
+            "[bold bright_yellow]5.[/] [bright_cyan]Load from a File[/]\n"
+            "[bold bright_yellow]6.[/] [bright_green]View Snippet Library[/]\n"
+            "[bold bright_yellow]7.[/] [bright_red]Exit[/]",
+            title="[bold bright_magenta]Select an action[/]", border_style="bright_cyan", padding=(1, 2),
+        ))
 
         try:
             choice = input("Enter choice [1-7]: ").strip()
@@ -292,7 +294,7 @@ def main() -> None:
                 snip.content,
                 title=f"[bold green]{snip.name}[/] ({snip.category})",
                 subtitle=snip.description,
-                border_style="green",
+                border_style="bright_green",
             )
         )
         return

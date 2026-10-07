@@ -29,9 +29,9 @@ def clear_screen() -> None:
 def show_banner() -> None:
     """Displays the stylized application banner."""
     banner_text = Text()
-    banner_text.append("🧠 RECALL\n", style="bold cyan")
-    banner_text.append("Terminal Active-Recall & Code Memorization Tool", style="dim italic")
-    console.print(Panel(banner_text, border_style="cyan", expand=False, padding=(1, 4)))
+    banner_text.append("🧠 RECALL\n", style="bold bright_cyan")
+    banner_text.append("Terminal Active-Recall & Code Memorization Tool", style="italic bright_magenta")
+    console.print(Panel(banner_text, border_style="bright_magenta", expand=False, padding=(1, 4), subtitle="[bold yellow]LEARN • RECALL • GROW[/]"))
 
 
 def show_session_header(level: int, total_levels: int, mode_name: str) -> None:
@@ -43,10 +43,10 @@ def show_session_header(level: int, total_levels: int, mode_name: str) -> None:
 
     header = Text()
     header.append(f"Level {level} / {total_levels} ", style="bold bright_white")
-    header.append(f"{progress_bar} {pct}% ", style="cyan")
-    header.append(f"• Mode: {mode_name.upper()}", style="dim")
+    header.append(f"{progress_bar} {pct}% ", style="bold bright_cyan")
+    header.append(f"• Mode: {mode_name.upper()}", style="bold bright_magenta")
 
-    console.print(Panel(header, border_style="blue", padding=(0, 2)))
+    console.print(Panel(header, border_style="bright_blue", padding=(0, 2), title="[bold yellow]STUDY PROGRESS[/]"))
 
 
 def show_target_content(chunks: List[str], unit: str = "line", language: Optional[str] = None) -> None:
@@ -64,9 +64,9 @@ def show_target_content(chunks: List[str], unit: str = "line", language: Optiona
     console.print(
         Panel(
             renderable,
-            title="[bold yellow]👁️ Memorize This Part[/]",
-            subtitle="[dim]Press Enter when you are ready to hide it[/]",
-            border_style="yellow",
+            title="[bold bright_yellow]👁️ Memorize This Part[/]",
+            subtitle="[italic bright_cyan]Press Enter when you are ready to hide it[/]",
+            border_style="bright_yellow",
             padding=(1, 2),
         )
     )
@@ -128,12 +128,12 @@ def show_mismatch(expected: List[str], actual: List[str], unit: str = "line") ->
 def show_stats_summary(stats: SessionStats) -> None:
     """Renders the post-session stats scorecard."""
     table = Table(
-        title="[bold green]🎉 Session Completed - Performance Scorecard[/]",
+        title="[bold bright_magenta]🎉 Session Completed - Performance Scorecard[/]",
         show_header=True,
-        header_style="bold green",
+        header_style="bold bright_cyan",
     )
-    table.add_column("Metric", style="cyan")
-    table.add_column("Result", style="bold white")
+    table.add_column("Metric", style="bold bright_blue")
+    table.add_column("Result", style="bold bright_white")
 
     table.add_row("Total Levels Mastered", str(stats.total_levels))
     table.add_row("Total Recall Attempts", str(stats.total_attempts))
