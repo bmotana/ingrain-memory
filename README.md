@@ -21,54 +21,6 @@
 
 ---
 
-## 📁 Project Structure
-
-```
-memorization-tool/
-├── pyproject.toml             # Modern PEP 621 packaging metadata & CLI script entrypoint
-├── README.md                  # Comprehensive project documentation
-├── LICENSE                    # MIT License
-├── .gitignore                 # Python, virtualenv, and IDE ignore rules
-├── main.py                    # Direct zero-install launcher
-│
-├── src/recall/                # Main package source
-│   ├── __init__.py            # Package exports and version
-│   ├── __main__.py            # Entry point for 'python -m recall'
-│   ├── cli.py                 # Argument parser and interactive home menu
-│   ├── core/
-│   │   ├── chunker.py         # Text splitting (words/lines) & heuristic unit detection
-│   │   ├── matcher.py         # Comparison engine, normalization, similarity ratio
-│   │   ├── session.py         # Level tracker, hint generator, and stats recorder
-│   │   └── library.py         # Built-in samples and user deck storage
-│   ├── modes/
-│   │   ├── base.py            # Abstract mode interface
-│   │   ├── typing_mode.py     # Interactive typing recall
-│   │   ├── code_mode.py       # Code memorizer with syntax highlighting & diffs
-│   │   └── oral_mode.py       # Flashcard / speech rehearsal with self-grading
-│   └── ui/
-│       ├── console.py         # Screen clears, banners, panels, and prompts
-│       └── diff_view.py       # Colored side-by-side & inline diff renderers
-│
-├── samples/                   # Practice files
-│   ├── data_viz.py            # Seaborn & Matplotlib regression plot snippet
-│   ├── python_idioms.py       # Dictionary lookups & list comprehensions
-│   └── invictus.txt           # Poetry stanza
-│
-├── tests/                     # Unit test suite (standard library unittest)
-│   ├── test_chunker.py
-│   ├── test_matcher.py
-│   ├── test_session.py
-│   └── test_library.py
-│
-└── legacy/                    # Archived early prototypes
-    ├── README.md
-    ├── steping_stone.py       # V1 sentence prototype
-    ├── v2_not_for_typing.py   # V2 oral prototype
-    └── V3_for_coding.py       # V3 multi-line code prototype
-```
-
----
-
 ## 🚀 Installation & Setup
 
 ### Requirements
